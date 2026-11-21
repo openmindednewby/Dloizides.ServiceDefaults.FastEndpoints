@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <PackageId>Dloizides.ServiceDefaults.FastEndpoints</PackageId>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="ApiDocs.AspNetCore" Version="1.2.0" />
+    <PackageReference Include="FastEndpoints" Version="6.2.0" />
+    <PackageReference Include="FastEndpoints.Swagger" Version="6.2.0" />
+  </ItemGroup>
+</Project>

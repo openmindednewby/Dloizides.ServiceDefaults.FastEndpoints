@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Dloizides.ServiceDefaults.FastEndpoints/Dloizides.ServiceDefaults.FastEndpoints.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Dloizides.ServiceDefaults.FastEndpoints.Tests/Dloizides.ServiceDefaults.FastEndpoints.Tests.csproj" />
+  </Folder>
+</Solution>
