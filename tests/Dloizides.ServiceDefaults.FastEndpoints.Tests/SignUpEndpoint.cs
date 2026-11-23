@@ -29,6 +29,6 @@ public sealed class SignUpEndpoint : Endpoint<SignUpRequest>
 
     public override Task HandleAsync(SignUpRequest req, CancellationToken ct)
     {
-        return SendNoContentAsync(ct);
+        return Send.NoContentAsync(ct);
     }
 }

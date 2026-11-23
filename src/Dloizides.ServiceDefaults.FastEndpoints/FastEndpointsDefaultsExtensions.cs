@@ -50,8 +50,7 @@ public static class FastEndpointsDefaultsExtensions
                 config.Serializer.Options.Converters.Add(new JsonStringEnumConverter());
                 if (settings.EnableValidationProblemDetails)
                 {
-                    config.Errors.UseProblemDetails(ValidationProblemDetails.Configure);
-                    config.Errors.ResponseBuilder = ValidationProblemDetails.Build;
+                    config.UseDloizidesValidationProblemDetails();
                 }
             })
             .UseSwaggerGen(uiConfig: ui => ui.OAuth2Client = new OAuth2ClientSettings

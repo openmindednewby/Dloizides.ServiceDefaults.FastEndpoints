@@ -21,6 +21,6 @@ public sealed class PingEndpoint : EndpointWithoutRequest<PingResponse>
 
     public override Task HandleAsync(CancellationToken ct)
     {
-        return SendOkAsync(new PingResponse(PingStatus.Ready), ct);
+        return Send.OkAsync(new PingResponse(PingStatus.Ready), ct);
     }
 }
