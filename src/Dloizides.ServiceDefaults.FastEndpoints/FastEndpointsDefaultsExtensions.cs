@@ -25,7 +25,8 @@ public static class FastEndpointsDefaultsExtensions
             options.RoutePrefix,
             swagger.ClientId,
             swagger.Title,
-            DocsContentSecurityPolicy.For(swagger.Authority)));
+            DocsContentSecurityPolicy.For(swagger.Authority),
+            options.EnableValidationProblemDetails));
         builder.Services.AddFastEndpoints().AddOAuth2PkceSwaggerDocument(builder.Configuration, options.ConfigureSwagger);
         return builder;
     }
@@ -47,6 +48,11 @@ public static class FastEndpointsDefaultsExtensions
                 config.Serializer.Options.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
                 config.Serializer.Options.PropertyNameCaseInsensitive = true;
                 config.Serializer.Options.Converters.Add(new JsonStringEnumConverter());
+                if (settings.EnableValidationProblemDetails)
+                {
+                    config.Errors.UseProblemDetails(ValidationProblemDetails.Configure);
+                    config.Errors.ResponseBuilder = ValidationProblemDetails.Build;
+                }
             })
             .UseSwaggerGen(uiConfig: ui => ui.OAuth2Client = new OAuth2ClientSettings
             {

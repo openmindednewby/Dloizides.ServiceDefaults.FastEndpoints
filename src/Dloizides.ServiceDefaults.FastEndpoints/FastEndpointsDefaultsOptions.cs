@@ -10,5 +10,7 @@ public sealed class FastEndpointsDefaultsOptions
 
     public string RoutePrefix { get; set; } = DefaultRoutePrefix;
 
+    public bool EnableValidationProblemDetails { get; set; }
+
     public Action<OAuth2PkceSwaggerOptions>? ConfigureSwagger { get; set; }
 }

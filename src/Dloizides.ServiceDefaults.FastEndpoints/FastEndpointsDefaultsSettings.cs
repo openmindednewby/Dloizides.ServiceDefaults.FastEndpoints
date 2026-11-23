@@ -4,4 +4,5 @@ internal sealed record FastEndpointsDefaultsSettings(
     string RoutePrefix,
     string? SwaggerClientId,
     string? SwaggerTitle,
-    string DocsContentSecurityPolicy);
+    string DocsContentSecurityPolicy,
+    bool EnableValidationProblemDetails);

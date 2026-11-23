@@ -37,6 +37,14 @@ internal static class FastEndpointsHost
         return client.GetAsync(path, app.Lifetime.ApplicationStopping);
     }
 
+    public static async Task<HttpResponseMessage> PostJsonAsync(this WebApplication app, string path, string json)
+    {
+        var client = app.GetTestClient();
+        client.BaseAddress = new Uri(BaseAddress);
+        using var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+        return await client.PostAsync(path, content, app.Lifetime.ApplicationStopping);
+    }
+
     public static Task<string> BodyAsync(this HttpResponseMessage response, WebApplication app)
     {
         return response.Content.ReadAsStringAsync(app.Lifetime.ApplicationStopping);
